@@ -3,6 +3,8 @@ Biu.moe Uploader
 
 基本功能有了，过几天高考完了再弄别的qwq
 
+- UID 和 KEY 在 config.yaml 中定义
+
 
     root@whitemagi:~/BiuUploader# ./biuper -h
     
