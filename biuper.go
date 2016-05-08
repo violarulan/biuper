@@ -48,12 +48,14 @@ func main() {
     songinfo["sign"] = biuper.Md5(songinfo["uid"]+songinfo["filemd5"]+songinfo["title"]+songinfo["singer"]+songinfo["album"]+songinfo["remark"]+key)
 
     var dat map[string]interface{}
+    
+    logger.Println(fmt.Sprintf("[INFO] Requesting UpToken ..."))
     resp := biuper.FormPost(songinfo, "https://api.biu.moe/Api/createSong")
    
     json.Unmarshal([]byte(resp), &dat)
 
     if dat["success"] == true {
-        fmt.Println(dat["token"])
+        logger.Println(fmt.Sprintf("[INFO] Get UpToken: %s", dat["token"]))
         params := make(map[string]string)
         params["key"] = biuper.GetFileMd5(filename)
         params["x:md5"] = biuper.GetFileMd5(filename)
