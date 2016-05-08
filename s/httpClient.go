@@ -15,7 +15,7 @@ import (
 )
 
 var (
-    logger = log.New(os.Stdout, "", log.Ldate|log.Ltime|log.Lmicroseconds)
+    logger = log.New(os.Stdout, "", log.Ldate|log.Ltime)
 )
 
 func FormPost(data map[string]string, dest string) string {
@@ -80,6 +80,7 @@ func Upload(params map[string]string, filename string)  {
     }
 
     client := &http.Client{}
+    logger.Println(fmt.Sprintf("[INFO] Uploading ..."))
     resp, err := client.Do(request)
     if err != nil {
       log.Fatal(err)
