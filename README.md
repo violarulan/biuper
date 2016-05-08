@@ -5,6 +5,8 @@ Biu.moe Uploader
 
 UID 和 KEY 在 config.yaml 中定义
 
+Download binary: https://github.com/masahoshiro/biuper/releases/latest
+
 
     root@whitemagi:~/BiuUploader/biuper# ./biuper -h
     Usage of ./biuper:
