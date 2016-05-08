@@ -16,8 +16,9 @@ var (
     music_singer *string = flag.String("s", "musicsinger_undefined", "Use -s <singer> (Singer)")
     music_album *string = flag.String("a", "musicalbum_undefined", "Use -a <album> (Album)")
     music_remark *string = flag.String("r", "musicremark_undefined", "Use -r <remark> (Remarks)")
-    music_type1 *string = flag.String("t1", "musictype1_undefined", "Use -t1 <type1> (1:anime, 2:galgame, 3: idol, 4: touhou project, 5:vocaloid, 6:doujin)")
-    music_type2 *string = flag.String("t2", "musictype2_undefined", "Use -t2 <type2> (1:original, 2:instrumental, 3:absolute music, 4:cover version)")
+    music_type1 *string = flag.String("t1", "1", "Use -t1 <type1> (1:anime(default), 2:galgame, 3: idol, 4: touhou project, 5:vocaloid, 6:doujin)")
+    music_type2 *string = flag.String("t2", "1", "Use -t2 <type2> (1:original(default), 2:instrumental, 3:absolute music, 4:cover version)")
+    force_upload *int = flag.Int("F", 0, "Use -F 1 to Force Upload(default 0)")
 )
 
 func main() {
@@ -43,6 +44,7 @@ func main() {
     //songinfo["sign"] = "fd14711abb548ae9acfe50d0f0f12f00"
     songinfo["type1"] = *music_type1
     songinfo["type2"] = *music_type2
+    songinfo["force"] = fmt.Sprintf("%d", *force_upload)
     songinfo["sign"] = biuper.Md5(songinfo["uid"]+songinfo["filemd5"]+songinfo["title"]+songinfo["singer"]+songinfo["album"]+songinfo["remark"]+key)
 
     var dat map[string]interface{}
