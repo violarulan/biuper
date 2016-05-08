@@ -7,7 +7,7 @@ UID 和 KEY 在 config.yaml 中定义
 
 
     root@whitemagi:~/BiuUploader/biuper# ./biuper -h
-    Usage of /tmp/go-build133564160/command-line-arguments/_obj/exe/biuper:
+    Usage of ./biuper:
         -F int
           Use -F 1 to Force Upload(default 0)
         -a string
